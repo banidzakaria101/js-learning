@@ -8,36 +8,36 @@
 <body>
   <p>Rock Paper Scissors</p>
   <button onclick="
-    const randomNumber1 = Math.random();
-    let computerChoice1 = '';
-    if (randomNumber1 < 1/3 && randomNumber1 > 0){
-      computerChoice1 = 'Rock';
+    const randomNumber = Math.random();
+    let computerChoice = '';
+    if (randomNumber < 1/3 && randomNumber > 0){
+      computerChoice = 'Rock';
       console.log('Computer chose Rock')
-    } else if (randomNumber1 > 1/3 && randomNumber1 < 2/3 ){
-      computerChoice1 = 'Paper';
+    } else if (randomNumber > 1/3 && randomNumber < 2/3 ){
+      computerChoice = 'Paper';
       console.log('computer chose Paper')
-    } else if (randomNumber1 > 2/3 && randomNumber1 < 1){
+    } else if (randomNumber > 2/3 && randomNumber < 1){
       computerChoice = 'Scissors';
       console.log('computer chose Scissors')
     } else {
       console.log('Invalid choice, try again');
-    }; 
+    }; console.log('You chose Rock');
 
-    let result1 = '';
-    if (computerChoice1 === 'Rock'){
-      result1 = 'tie';
+    let result = '';
+    if (computerChoice === 'Rock'){
+      result = 'tie';
       console.log('tie!');
-    } else if (computerChoice1 === 'Paper'){
-      1 = 'You lose!';
+    } else if (computerChoice === 'Paper'){
+      result = 'You lose!';
       console.log('You lose!');
-    } else if (computerChoice1 === 'Scissors'){
-      result1 = 'You win!';
+    } else if (computerChoice === 'Scissors'){
+      result = 'You win!';
       console.log('You win!');
     }
 
     alert(`You chose Rock, Computer choses ${computerChoice}. ${result}`);
   ">Rock</button>
-
+  
   <button onclick="
     const randomNumber = Math.random();
     let computerChoice = '';
@@ -52,7 +52,7 @@
       console.log('computer chose Scissors')
     } else {
       console.log('Invalid choice, try again');
-    }; console.log('You chose Paper');
+    }; console.log('You chose Rock');
 
     let result = '';
     if (computerChoice === 'Rock'){
@@ -69,7 +69,40 @@
     }
 
     alert(`You chose Paper, Computer choses ${computerChoice}. ${result}`);
+    
   ">Paper</button>
-  <button>Scissors</button>
+  
+  <button onclick="
+    const randomNumber = Math.random();
+    let computerChoice = '';
+    if (randomNumber < 1/3 && randomNumber > 0){
+      computerChoice = 'Rock';
+      console.log('Computer chose Rock')
+    } else if (randomNumber > 1/3 && randomNumber < 2/3 ){
+      computerChoice = 'Paper';
+      console.log('computer chose Paper')
+    } else if (randomNumber > 2/3 && randomNumber < 1){
+      computerChoice = 'Scissors';
+      console.log('computer chose Scissors')
+    } else {
+      console.log('Invalid choice, try again');
+    }; console.log('You chose Rock');
+
+    let result = '';
+    if (computerChoice === 'Rock'){
+      result = 'You lose!';
+      console.log('You lose!');
+    } else if (computerChoice === 'Paper'){
+      result = 'You win!';
+      console.log('You win!');
+    } else if (computerChoice === 'Scissors'){
+      result = 'tie';
+      console.log('tie!');
+      
+    }
+
+    alert(`You chose Scissors, Computer choses ${computerChoice}. ${result}`);
+    
+  ">Scissors</button>
 </body>
 </html>
