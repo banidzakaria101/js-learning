@@ -6,7 +6,36 @@
   <title>Boolean</title>
 </head>
 <body>
+
+
   <script>
+    const name = 'Alfred'
+    const hour = 6;
+    if( hour >= 6 && hour < 12) {
+      console.log(`it is ${hour}, Good Morning ${name}!`);
+    } else if ( hour >=12 && hour < 18) {
+      console.log(`it is ${hour}, Good Afternoon!`);
+    } else if ( hour >=18 && hour < 24) {
+      console.log(`it is ${hour}, Good Evening!`);
+    } else if (hour >= 0 && hour < 6) {
+      console.log(`it is ${hour}, Good Night!`);
+    } else {
+      console.log('invalid hour!');
+    }
+
+    const isHoliday = false;
+    const age = 16;
+    if (isHoliday && age >= 6 || age >= 65) {
+      console.log('Discount');
+    } else if (!isHoliday && age >= 6 || age >= 65) {
+      console.log('No Discount');
+    } else {
+      console.log('Invalid input');
+    }
+
+    const guess = 'tails';
+    result = (guess === 'heads') ? 'You win!' : 'You lose!';
+    console.log(result);
   </script>
 </body>
 </html>
