@@ -77,6 +77,18 @@
 
       alert(`You chose ${playerMove}, Computer choses ${computerChoice}. ${result}`);
     }
+
+    function convertLenght(lenght, from, to){
+      if (from === 'km' && to === 'mile') {
+        console.log(lenght / 1.6);
+      } else if (from === 'mile' && to === 'km') {
+        console.log(lenght * 1.6);
+      } else {
+        console.log('wrong data!')
+      }
+    };
+    convertLenght(50 , 'mile', 'km');
+
   </script>
 </body>
 

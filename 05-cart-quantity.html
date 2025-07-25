@@ -11,16 +11,11 @@
   <h1>Cart Quantity</h1>
   <button onclick="console.log(`Cart Quantity: ${cartQuantity}`)">Show Quantity</button>
 
-  <button  onclick=" if(cartQuantity < 10) {
-    cartQuantity = cartQuantity + 1; console.log(`Cart Quantity: ${cartQuantity}`)
-  } else if ( cartQuantity = 10 ){
-    alert('cart is full');
-    console.log(`Cart Quantity: ${cartQuantity}`);
-  }">Add to cart</button>
+  <button onclick="updateCartQuantity(1)">Add to cart</button>
 
-  <button onclick="cartQuantity = cartQuantity + 2; console.log(`Cart Quantity: ${cartQuantity}`)">+2</button>
-  
-  <button onclick="cartQuantity = cartQuantity + 3; console.log(`Cart Quantity: ${cartQuantity}`)">+3</button>
+  <button onclick="updateCartQuantity(2)">+2</button>
+
+  <button onclick="updateCartQuantity(3)">+3</button>
 
   <button
     onclick="cartQuantity = 0; console.log(`Cart was reset.`); console.log(`Cart Quantity: ${cartQuantity}`)">Reset
@@ -29,13 +24,15 @@
 
   <script>
     let cartQuantity = 0;
-    const name = ' zakaria';
-    console.log(`my name is: ${name}`);
-    const cost = 500 + 300 + 900;
-    console.log(`Cost of the food is : ${cost}`);
-    const total = cost * 0.1 / 100;;
-    console.log((`tottal cost is : ${total}`));
-    </script>
+    function updateCartQuantity(quantity) {
+      if (cartQuantity > 10) {
+        alert('cart is full!')
+      } else if ( cartQuantity + quantity < 10) {
+        cartQuantity += quantity
+      }
+      console.log(`Cart Quantity: ${cartQuantity}`)
+    }
+  </script>
 </body>
 
 </html>
