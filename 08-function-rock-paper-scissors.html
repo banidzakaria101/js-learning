@@ -15,7 +15,7 @@
   <button onclick="resetScore()">Reset Score</button>
   <script>
 
-    
+
 
 
     let computerChoice = '';
@@ -37,14 +37,15 @@
       return computerChoice;
     }
 
-    const score = {
+    const score = JSON.parse(localStorage.getItem('score')) || {
       wins: 0,
-      loses:0,
-      ties:0
+      loses: 0,
+      ties: 0
     };
 
+    
     function playGame(playerMove) {
-      const computerChoice = pickComputerCHoice();2
+      const computerChoice = pickComputerCHoice(); 2
       let result = '';
       if (playerMove === 'Rock') {
         if (computerChoice === 'Rock') {
@@ -82,13 +83,16 @@
         }
       }
 
-      if (result === 'You win!' ) {
+      if (result === 'You win!') {
         score.wins += 1;
       } else if (result === 'You lose!') {
         score.loses += 1;
-      } else if ( result === 'tie') {
+      } else if (result === 'tie') {
         score.ties += 1
-    }
+      }
+
+      localStorage.setItem('score', JSON.stringify(score));
+      
 
       alert(`You chose ${playerMove}, Computer choses ${computerChoice}. ${result} 
       Your score : Wins: ${score.wins}, Loses: ${score.loses}, Ties: ${score.ties}`
@@ -98,11 +102,15 @@
     function resetScore() {
       score.wins = 0;
       score.loses = 0;
-      score.ties =0;
+      score.ties = 0;
+      localStorage.removeItem('score');
       alert(`Your reseted score : Wins: ${score.wins}, Loses: ${score.loses}, Ties: ${score.ties}`);
-    }
 
-    function convertLenght(lenght, from, to){
+    }
+    
+    
+
+    function convertLenght(lenght, from, to) {
       if (from === 'km' && to === 'mile') {
         console.log(lenght / 1.6);
       } else if (from === 'mile' && to === 'km') {
@@ -111,7 +119,7 @@
         console.log('wrong data!')
       }
     };
-    convertLenght(50 , 'mile', 'km');
+    convertLenght(50, 'mile', 'km');
 
   </script>
 </body>
