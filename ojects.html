@@ -1,21 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Objects</title>
 </head>
+
 <body>
-  
+
 
   <script>
-const product2  = {
-  name : 'shirt',
-  ['delivery-time']: '1 day'
-}
-console.log(product2);
-console.log(product2['name']);
-console.log(product2['delivery-time']);
+    const product2 = {
+      name: 'shirt',
+      'delivery-time': '1 day',
+      rating: {
+        stars: 4.5,
+        count: 234
+      },
+      fun: function functionName() {
+        console.log('hello');
+      }
+
+    }
+
+
+    console.log(product2);
+    console.log(product2['name']);
+    console.log(product2['delivery-time']);
+    console.log(product2.rating.stars);
+    product2.fun();
+
+    const jsonString = JSON.stringify(product2);
+    console.log(jsonString);
+
+    const product3 = JSON.parse(jsonString);
+    console.log(product3);
   </script>
 </body>
+
 </html>
