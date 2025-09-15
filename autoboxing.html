@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+
+<script>
+  console.log("hello".toUpperCase());
+
+  const object1 = {
+    message : 'hello',
+  }
+
+  const object2 = object1;
+
+  object1.message = 'hi';
+
+const object3 = {
+  message : 'hello', 
+}  
+
+console.log(object3 === object1);
+console.log(object2 === object1);
+
+const object4 = {
+  message : 'object 4', 
+  price : 100,
+}
+
+//const message = object4.message;
+const { message, price } = object4;
+
+const object5 = {
+  //message: message,
+  //short hand property
+  message,
+  method : function functionName() {
+    console.log('hello from method');
+  },
+
+  //short hand method
+  method() {
+    console.log('hello from method shorthand');
+  }
+}
+
+console.log(message);
+object5.method();
+
+</script>
+</html>
