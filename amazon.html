@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+
+<script>
+  const product1 = {
+    name : 'basketball',
+    price : 2095,
+    ['delevery-time'] : '3days'
+  }
+
+  const product2 = {
+    name : 'rim',
+    price : 4595,
+    ['delevery-time'] : '1week',
+  }
+
+  product1.price = product1.price + 500;
+
+  function lessExpensive(product1, product2) {
+    if (product1.price < product2.price) {
+      return console.log(product1.name + ' is less expensive');
+    } else if (product2.price < product1.price) {
+      return console.log(product2.name + ' is less expensive');
+    } else { 
+      return consol.log('both have the same price');
+    }
+  }
+
+  lessExpensive(product1, product2);
+
+</script>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="play('heads')">heads</button>
+  <button onclick="play('tails')">tails</button>
+</body>
+
+<script>
+  let coinFace = '';
+  let result = '';
+  const score = JSON.parse(localStorage.getItem('score')) || {
+    wins: 0,
+    losses: 0,
+  };
+
+  function flipCoin() {
+    const randomNumber = Math.random();
+    if (randomNumber < 0.5 ) {
+      coinFace = 'heads'
+      console.log(coinFace);
+    } else {
+      coinFace = 'tails'
+      console.log(coinFace);
+    }
+    return coinFace;
+  }
+
+  function play(guess) {
+    flipCoin();
+    if (guess === coinFace) {
+      result = 'You win';
+      console.log(`You chose ${guess}, the coin landed on ${coinFace}, ${result}`);
+    } else {
+      result = 'You lose';
+      console.log(`You chose ${guess}, the coin landed on ${coinFace}, ${result}`);
+    }
+
+    
+    return scoreKeeper(result, guess, coinFace);
+    
+  }
+
+  function scoreKeeper(result, guess, coinFace) {
+    
+    if (result === 'You win') {
+      score.wins +=1 ;
+      
+  } else {
+    score.losses +=1;
+    
+  }
+
+  localStorage.setItem('score', JSON.stringify(score));
+
+  alert(`You chose ${guess}, the coin landed on ${coinFace}, ${result} Your score : Wins ${score.wins}, Losses ${score.losses}`);
+  return score;
+}
+
+</script>
+</html>
