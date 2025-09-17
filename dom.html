@@ -12,6 +12,11 @@
   <button onClick="subscribe()" class="js-subscribe-button">Subscribe</button>
 </body>
 
+<p>Amazon Shiping calculator.</p>
+<input type="text" placeholder="Enter product's price." class="js-price-input" onkeydown="enter(event)"/>
+<button onclick="calculator()">calculate</button>
+<p class="total"></p>
+
 <script>
   function subscribe() {
     const buttonElement = document.querySelector('.js-subscribe-button');
@@ -21,6 +26,22 @@
       buttonElement.innerHTML = 'Subscribe';
     }
   }
+
+  const priceElement = document.querySelector('.js-price-input');
+  function calculator() {
+    let price = Number(priceElement.value);
+    if (price < 40) {
+      price = 10 + price;
+  };
+  document.querySelector('.total').innerHTML = `Total cost is $${price}`;
+}
+
+function enter(event) {
+  if (event.key === 'Enter') {
+    calculator();
+  }
+}
+
 </script>
 
 </html>
