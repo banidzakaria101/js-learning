@@ -4,15 +4,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>DOM PROJECT</title>
 </head>
 
 <body>
-  <button>hello</button>
+  <p>Youtube Subscribe Button</p>
+  <button onClick="subscribe()" class="js-subscribe-button">Subscribe</button>
 </body>
 
 <script>
-  document.querySelector('button')
+  function subscribe() {
+    const buttonElement = document.querySelector('.js-subscribe-button');
+    if (buttonElement.innerText === 'Subscribe') {
+      buttonElement.innerHTML = 'Subscribed';
+    } else {
+      buttonElement.innerHTML = 'Subscribe';
+    }
+  }
 </script>
 
 </html>
