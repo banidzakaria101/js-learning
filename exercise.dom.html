@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" placeholder="Enter Your Name!" onkeydown="enter(event)"">
+  <button onclick="submit()">Submit</button>
+  <p></p>
+  <input type="text" placeholder="Wright something!" onkeyup="change(event)" class="js-input"/>
+  <p class="js-p"></p>
+</body>
+<script>
+  function submit() {
+    const inputElement = document.querySelector('input')
+    document.querySelector('p').innerHTML = `Hello, Your Name is: ${inputElement.value.toUpperCase()}`
+  }
+
+  function enter(event) {
+    if (event.key === 'Enter') {
+      submit();
+    }
+  }
+
+  function change(event) {
+
+    document.querySelector('.js-p').innerHTML = event.target.value
+  }
+</script>
+</html>
