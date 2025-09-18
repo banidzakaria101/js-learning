@@ -11,6 +11,10 @@
   <p></p>
   <input type="text" placeholder="Wright something!" onkeyup="change(event)" class="js-input"/>
   <p class="js-p"></p>
+
+  <input type="text" placeholder="enter price" class="js-price-input">
+  <button onclick="calculate()">Calculate</button>
+  <p class="js-p-price"></p>
 </body>
 <script>
   function submit() {
@@ -26,7 +30,12 @@
 
   function change(event) {
 
-    document.querySelector('.js-p').innerHTML = event.target.value
+    document.querySelector('.js-p').innerHTML = event.target.value;
+  }
+
+  function calculate() {
+    const priceInputElement = document.querySelector('.js-price-input');
+    document.querySelector('.js-p-price').innerHTML = `$ ${priceInputElement.value}`;
   }
 </script>
 </html>
