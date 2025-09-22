@@ -5,16 +5,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DOM PROJECT</title>
+  <style>
+
+    Body {
+      font-family: arial
+    }
+
+    .subscribe-button {
+      cursor: pointer;
+      border: none;
+      background-color: black;
+      color:white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: bolder;
+      margin-bottom: 30px
+    }
+    .is-subscribed {
+      background-color: gray;
+      color: clack;
+    }
+
+    .price-input {
+      font-size: 15px;
+      padding: 10px
+    }
+
+    .calculator-button {
+      padding: 12px;
+      border: none;
+      background-color: green;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 
 <body>
   <p>Youtube Subscribe Button</p>
-  <button onClick="subscribe()" class="js-subscribe-button">Subscribe</button>
+  <button onClick="subscribe()" class="js-subscribe-button subscribe-button">Subscribe</button>
 </body>
 
 <p>Amazon Shiping calculator.</p>
-<input type="text" placeholder="Enter product's price." class="js-price-input" onkeydown="enter(event)"/>
-<button onclick="calculator()">calculate</button>
+
+<input type="text" placeholder="Enter product's price." class="js-price-input price-input" onkeydown="enter(event)"/>
+<button class="calculator-button" onclick="calculator()">calculate</button>
+
 <p class="total"></p>
 
 <script>
@@ -22,8 +59,10 @@
     const buttonElement = document.querySelector('.js-subscribe-button');
     if (buttonElement.innerText === 'Subscribe') {
       buttonElement.innerHTML = 'Subscribed';
+      buttonElement.classList.add('is-subscribed')
     } else {
       buttonElement.innerHTML = 'Subscribe';
+      buttonElement.classList.remove('is-subscribed');
     }
   }
 
