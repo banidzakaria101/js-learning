@@ -20,18 +20,51 @@
       height: 50px;
       border: 10px;
     }
+
+    .move-button{
+      border-radius: 100%;
+      border: 3px solid white;
+      background-color: transparent;
+      width: 100px;
+      height: 100px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .result {
+      font-size: 25px;
+      font-weight: bold;
+      margin-top: 50px;
+    }
+
+    .score {
+      margin-top: 60px;
+    }
+
+    .moves{
+      margin-top: 50px;
+    }
+
+    .reset-score {
+      padding: 5px 10px;
+      border: none;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
   </style>
 </head>
 
 <body>
   <p class="title">Rock, Paper, Scissors Game</p>
-  <button onclick="playGame('Rock')"><img src="./images/rock-emoji.png" alt="rock" class="move-icon"></button>
-  <button onclick="playGame('Paper')"><img src="./images/paper-emoji.png" alt="rock" class="move-icon"></button>
-  <button onclick="playGame('Scissors')"><img src="./images/scissors-emoji.png" alt="rock" class="move-icon"></button>
-  <button onclick="resetScore()">Reset Score</button>
-  <p class="js-moves">moves</p>
-  <p class="js-results">results</p>
-  <p class="js-score">score</p>
+  <button class="move-button" onclick="playGame('Rock')"><img src="./images/rock-emoji.png" alt="rock" class="move-icon"></button>
+  <button class="move-button" onclick="playGame('Paper')"><img src="./images/paper-emoji.png" alt="rock" class="move-icon"></button>
+  <button class="move-button" onclick="playGame('Scissors')"><img src="./images/scissors-emoji.png" alt="rock" class="move-icon"></button>
+  
+  <p class="js-moves moves"></p>
+  <p class="js-results result">results</p>
+  <p class="js-score score">score</p>
+  <button class="reset-score" onclick="resetScore()">Reset Score</button>
   
   
   <script>
@@ -45,14 +78,14 @@
       
       const randomNumber = Math.random();
       if (randomNumber < 1 / 3 && randomNumber > 0) {
-        computerChoice = 'Rock';
-        console.log('Computer chose Rock')
+        computerChoice = 'rock';
+        console.log('Computer chose rock')
       } else if (randomNumber > 1 / 3 && randomNumber < 2 / 3) {
-        computerChoice = 'Paper';
-        console.log('computer chose Paper')
+        computerChoice = 'paper';
+        console.log('computer chose paper')
       } else if (randomNumber > 2 / 3 && randomNumber < 1) {
-        computerChoice = 'Scissors';
-        console.log('computer chose Scissors')
+        computerChoice = 'scissors';
+        console.log('computer chose scissors')
       } else {
         console.log('Invalid choice, try again');
       };
@@ -76,30 +109,29 @@
       console.log(resultElement)
       const computerChoice = pickComputerCHoice();
       let result = '';
-      if (playerMove === 'Rock') {
-
-        if (computerChoice === 'Rock') {
+      if (playerMove === 'rock') {
+        if (computerChoice === 'rock') {
           result = 'Tie!';
-        } else if (computerChoice === 'Paper') {
+        } else if (computerChoice === 'paper') {
           result = 'You lose!';
-        } else if (computerChoice === 'Scissors') {
+        } else if (computerChoice === 'scissors') {
           result = 'You win!';
         }
-      } else if (playerMove === 'Paper') {
-        if (computerChoice === 'Rock') {
+      } else if (playerMove === 'paper') {
+        if (computerChoice === 'rock') {
           result = 'You win!';
-        } else if (computerChoice === 'Paper') {
+        } else if (computerChoice === 'paper') {
           result = 'Tie!';
 
-        } else if (computerChoice === 'Scissors') {
+        } else if (computerChoice === 'scissors') {
           result = 'You lose!';
         }
-      } else if (playerMove === 'Scissors') {
-        if (computerChoice === 'Rock') {
+      } else if (playerMove === 'scissors') {
+        if (computerChoice === 'rock') {
           result = 'You lose!';
-        } else if (computerChoice === 'Paper') {
+        } else if (computerChoice === 'paper') {
           result = 'You win!';
-        } else if (computerChoice === 'Scissors') {
+        } else if (computerChoice === 'scissors') {
           result = 'Tie!';
         }
       }
@@ -116,7 +148,10 @@
 
       updateScoreElements();
       resultElement.innerHTML = `${result}`;
-      movesElement.innerHTML = ` You chose ${playerMove}, Computer chose ${computerChoice}.`
+      movesElement.innerHTML = `you chose
+    <img class="move-icon" src="images/${playerMove}-emoji.png" alt="">
+    <img class="move-icon" src="images/${computerChoice}-emoji.png" alt="">
+    computer`
       
       
 
