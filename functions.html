@@ -71,6 +71,22 @@
       return (console.log(`min number is ${min}, max num is ${max}`));
     }
 
+    const words = ['apple', 'gape', 'gape', 'apple', 'apple', 'apple'];
+
+    function countWords(arr) {
+      const wordCount = {}
+
+      for ( word of arr) {
+        if(wordCount[word]) {
+          wordCount[word]++;
+        } else {
+          wordCount[word] = 1;
+        }
+      }
+
+      return console.log(wordCount);
+    }
+
    const result = sumArraysElements(myArray, myArray2);
    console.log(result);
 
@@ -78,6 +94,8 @@
    console.log(`there is ${positiveResults} numbers that are negatives on the array`);
 
   minMax(myArray);
+
+  countWords(words);
 
 
   </script>
