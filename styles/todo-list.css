@@ -30,8 +30,10 @@ body {
   grid-template-columns: 200px 150px 100px;
   column-gap: 10px;
   row-gap: 10px;
+  align-items: center;
 }
 
 .todo-input-grid {
   margin-bottom: 10px;
+  align-items: stretch;
 }
