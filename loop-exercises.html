@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loops Exrcise</title>
+</head>
+<body>
+  
+</body>
+<script>
+  const legumArr = ["egg", "carrot","egg", "potato", "egg", "broccoli", "egg", "spinach"];
+
+  function removeEgg(arr) {
+    let newArr = [];
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+      if(arr[i] === "egg" && count < 2) {
+        count++
+        continue;
+      }
+      newArr.push(arr[i]);
+    }
+    return newArr.reverse();
+  }
+
+  console.log(removeEgg(legumArr.reverse()));
+  const legumArr2 = legumArr.reverse();
+  console.log(legumArr2);
+
+  const duplicateArr = ["apple", "banana", "apple", "orange", "banana", "kiwi", "orange", "banana", "kiwi", "kiwi", "orange", "banana", "kiwi"];
+
+  function removeDuplicates(arr) {
+    let
+
+  }
+
+</script>
+</html>

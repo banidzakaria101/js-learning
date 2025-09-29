@@ -1,0 +1,118 @@
+<div class="p-6">
+  <p-toast />
+  <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-4 mb-6">
+    <div>
+      <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+        {{ isEditMode() ? 'Modifier un client' : 'Ajouter un nouveau client' }}
+      </h1>
+      <p class="text-lg text-gray-600 dark:text-gray-300">
+        {{ isEditMode() ? 'Modifier les informations du client' : 'Créer un nouveau client' }}
+      </p>
+    </div>
+    <div class="flex gap-2">
+      <p-button label="Enregistrer" icon="pi pi-check" (click)="save()" />
+      <p-button label="Annuler" icon="pi pi-times" severity="secondary" (click)="cancel()" />
+    </div>
+  </div>
+
+  <form [formGroup]="clientForm" class="space-y-6" novalidate>
+    <app-section-card title="Informations principales" contentClasses="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="space-y-2">
+        <label for="client_code" class="block text-sm font-semibold">Code client *</label>
+        <input id="client_code" name="client_code" type="text" pInputText formControlName="CLIENT_CODE" class="w-full" [class.ng-invalid]="isFieldInvalid('CLIENT_CODE')" placeholder="Saisir le code client" />
+        <small class="block text-sm text-red-500" *ngIf="isFieldInvalid('CLIENT_CODE')">{{ getFieldError('CLIENT_CODE') }}</small>
+      </div>
+      <div class="space-y-2">
+        <label for="nom" class="block text-sm font-semibold">Nom *</label>
+        <input id="nom" name="nom" type="text" pInputText formControlName="NOM" class="w-full" [class.ng-invalid]="isFieldInvalid('NOM')" placeholder="Saisir le nom" />
+        <small class="block text-sm text-red-500" *ngIf="isFieldInvalid('NOM')">{{ getFieldError('NOM') }}</small>
+      </div>
+      <div class="space-y-2">
+        <label for="nom2" class="block text-sm font-semibold">Prénom</label>
+        <input id="nom2" name="nom2" type="text" pInputText formControlName="NOM2" class="w-full" placeholder="Saisir le prénom" />
+      </div>
+      <div class="space-y-2">
+        <label for="categorie" class="block text-sm font-semibold">Catégorie client *</label>
+        <p-dropdown id="categorie" name="categorie" [options]="categories()" optionLabel="CLIENT_CATEGORIE_LIBELE" optionValue="CLIENT_CATEGORIE_ID" formControlName="CLIENT_CATEGORIE_ID" placeholder="Sélectionner une catégorie" class="w-full" [class.ng-invalid]="isFieldInvalid('CLIENT_CATEGORIE_ID')" />
+        <small class="block text-sm text-red-500" *ngIf="isFieldInvalid('CLIENT_CATEGORIE_ID')">{{ getFieldError('CLIENT_CATEGORIE_ID') }}</small>
+      </div>
+      <div class="space-y-2">
+        <label for="contact" class="block text-sm font-semibold">Personne à contacter</label>
+        <input id="contact" name="contact" type="text" pInputText formControlName="CONTACT" class="w-full" placeholder="Saisir le contact" />
+      </div>
+      <div class="space-y-2">
+        <label for="default" class="block text-sm font-semibold">Par défaut *</label>
+        <p-selectButton id="default" name="default" [options]="defaultOptions" formControlName="DEFAUT" optionLabel="label" optionValue="value" />
+        <small class="block text-sm text-red-500" *ngIf="isFieldInvalid('DEFAUT')">{{ getFieldError('DEFAUT') }}</small>
+      </div>
+    </app-section-card>
+
+    <app-section-card title="Informations de contact" contentClasses="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="space-y-2">
+        <label for="tel" class="block text-sm font-semibold">Téléphone</label>
+        <input id="tel" name="tel" type="text" pInputText formControlName="TEL" class="w-full" placeholder="Saisir le téléphone" />
+      </div>
+      <div class="space-y-2">
+        <label for="gsm" class="block text-sm font-semibold">Mobile (GSM)</label>
+        <input id="gsm" name="gsm" type="text" pInputText formControlName="GSM" class="w-full" placeholder="Saisir le mobile" />
+      </div>
+      <div class="space-y-2">
+        <label for="faxe" class="block text-sm font-semibold">Fax</label>
+        <input id="faxe" name="faxe" type="text" pInputText formControlName="FAXE" class="w-full" placeholder="Saisir le fax" />
+      </div>
+      <div class="space-y-2">
+        <label for="mail" class="block text-sm font-semibold">Email</label>
+        <input id="mail" name="mail" type="email" pInputText formControlName="MAIL" class="w-full" [class.ng-invalid]="isFieldInvalid('MAIL')" placeholder="Saisir l'email" />
+        <small class="block text-sm text-red-500" *ngIf="isFieldInvalid('MAIL')">{{ getFieldError('MAIL') }}</small>
+      </div>
+      <div class="space-y-2">
+        <label for="ville" class="block text-sm font-semibold">Ville</label>
+        <input id="ville" name="ville" type="text" pInputText formControlName="VILLE" class="w-full" placeholder="Saisir la ville" />
+      </div>
+      <div class="md:col-span-2 lg:col-span-3 space-y-2">
+        <label for="adresse" class="block text-sm font-semibold">Adresse</label>
+        <textarea id="adresse" name="adresse" pTextarea formControlName="ADRESSE" class="w-full" rows="2" placeholder="Saisir l'adresse"></textarea>
+      </div>
+    </app-section-card>
+
+    <app-section-card title="Informations juridiques" contentClasses="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="space-y-2">
+        <label for="ice" class="block text-sm font-semibold">ICE</label>
+        <input id="ice" name="ice" type="text" pInputText formControlName="ICE" class="w-full" placeholder="Saisir l'ICE" />
+      </div>
+      <div class="space-y-2">
+        <label for="if" class="block text-sm font-semibold">IF</label>
+        <input id="if" name="if" type="text" pInputText formControlName="IF" class="w-full" placeholder="Saisir l'IF" />
+      </div>
+      <div class="space-y-2">
+        <label for="patente" class="block text-sm font-semibold">Patente</label>
+        <input id="patente" name="patente" type="text" pInputText formControlName="PATENTE" class="w-full" placeholder="Saisir la patente" />
+      </div>
+      <div class="space-y-2">
+        <label for="rc" class="block text-sm font-semibold">RC</label>
+        <input id="rc" name="rc" type="text" pInputText formControlName="RC" class="w-full" placeholder="Saisir le RC" />
+      </div>
+      <div class="space-y-2">
+        <label for="cnss" class="block text-sm font-semibold">CNSS</label>
+        <input id="cnss" name="cnss" type="text" pInputText formControlName="CNSS" class="w-full" placeholder="Saisir la CNSS" />
+      </div>
+    </app-section-card>
+
+    <app-section-card title="Informations financières" contentClasses="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="space-y-2">
+        <label for="seuil_credit" class="block text-sm font-semibold">Seuil de crédit</label>
+        <input id="seuil_credit" name="seuil_credit" type="text" pInputText formControlName="SEUIL_CREDIT" class="w-full" [class.ng-invalid]="isFieldInvalid('SEUIL_CREDIT')" placeholder="Saisir le seuil de crédit" />
+        <small class="block text-sm text-red-500" *ngIf="isFieldInvalid('SEUIL_CREDIT')">
+          {{ getFieldError('SEUIL_CREDIT') || 'Ce champ doit être un nombre avec 2 décimales max.' }}
+        </small>
+      </div>
+      <div class="space-y-2">
+        <label for="old_credit" class="block text-sm font-semibold">Ancien crédit</label>
+        <input id="old_credit" name="old_credit" type="text" pInputText formControlName="OLD_CREDIT" class="w-full" [class.ng-invalid]="isFieldInvalid('OLD_CREDIT')" placeholder="Saisir l'ancien crédit" />
+        <small class="block text-sm text-red-500" *ngIf="isFieldInvalid('OLD_CREDIT')">
+          {{ getFieldError('OLD_CREDIT') || 'Ce champ doit être un nombre avec 2 décimales max.' }}
+        </small>
+      </div>
+    </app-section-card>
+  </form>
+</div>

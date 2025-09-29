@@ -1,0 +1,48 @@
+p-button:disabled {
+  opacity: 0.5 !important;
+  pointer-events: none;
+}
+
+.btn-success-custom ::ng-deep .p-button {
+  background-color: #28a745 !important; 
+  border-color: #28a745 !important;   
+  color: #fff;
+}
+
+.btn-info-custom ::ng-deep .p-button {
+  background-color: #17a2b8 !important;   
+  border-color: #17a2b8 !important;     
+  color: #fff;
+}
+
+.btn-warning-custom ::ng-deep .p-button {
+  background-color: #ffc107 !important;  
+  border-color: #ffc107 !important;    
+  color: #212529;
+}
+
+.btn-danger-custom ::ng-deep .p-button {
+  background-color: #dc3545 !important;  
+  border-color: #dc3545 !important;    
+  color: #fff;
+}
+
+.btn-success-custom ::ng-deep .p-button:hover {
+  background-color: #218838 !important; 
+  border-color: #1e7e34 !important;   
+}
+
+.btn-info-custom ::ng-deep .p-button:hover {
+  background-color: #138496 !important;   
+  border-color: #117a8b !important;     
+}
+
+.btn-warning-custom ::ng-deep .p-button:hover {
+  background-color: #e0a800 !important;  
+  border-color: #d39e00 !important;    
+}
+
+.btn-danger-custom ::ng-deep .p-button:hover {
+  background-color: #c82333 !important;  
+  border-color: #bd2130 !important;    
+}
