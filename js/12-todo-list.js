@@ -4,12 +4,12 @@ renderTodoList();
 
 function renderTodoList() {
   let todoListHTML = "";
-  todoList.forEach(function (task, index) {
+  todoList.forEach((task, index) => {
     const { name, date } = task;
     console.log(task);
     const html = `<div>${name}</div> 
                 <div>${date}</div> 
-                <button class="delete-button" onClick="todoList.splice(${index}, 1); renderTodoList()">Delete</button>`;
+                <button class="delete-button js-delete-button">Delete</button>`;
     todoListHTML += html;
   });
   
@@ -43,3 +43,27 @@ function addTodo() {
   const pElemment = document.querySelector(".p-todo");
   renderTodoList();
 }
+
+document.querySelector('.js-add-button').addEventListener('click', () => {
+  addTodo();
+})
+
+document.querySelectorAll('.js-delete-button').forEach((button, index) => {
+  button.addEventListener('click', () => {
+    todoList.splice(index, 1); renderTodoList()
+  })
+})
+
+const neg = [1, -2, 3, -4, -5];
+
+// const newNeg = neg.filter((n) => n > 0);
+// console.log(newNeg); 
+
+const negFiltred = neg.filter((n) => {
+  if (n > 0) {
+    return true;
+  }
+  return false;
+})
+
+console.log(negFiltred);
